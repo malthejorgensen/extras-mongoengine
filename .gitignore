@@ -1,3 +1,7 @@
 *.pyc
 build/
 venv/
+
+# Coverage
+/htmlcov
+/.coverage

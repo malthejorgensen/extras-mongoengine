@@ -14,7 +14,7 @@ class TimedeltaField(BaseField):
         if not isinstance(value, (timedelta, int, float)):
             self.error(u'cannot parse timedelta "%r"' % value)
 
-    def to_mongo(self, value):
+    def to_mongo(self, value, **kwargs):
         return self.prepare_query_value(None, value)
 
     def to_python(self, value):
@@ -84,7 +84,7 @@ class EnumField(object):
     def to_python(self, value):
         return self.enum(super(EnumField, self).to_python(value))
 
-    def to_mongo(self, value):
+    def to_mongo(self, value, **kwargs):
         return self.__get_value(value)
 
     def prepare_query_value(self, op, value):
